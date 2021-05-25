@@ -1,0 +1,401 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'vecbinararegular';
+	src: url('fonts/vecbinar-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'fmderanax';
+	src: url('fonts/26_fm_derana_sinhala_font_by_aluth.com-webfont.woff') format('woff');
+}
+
+	:root {
+		--bgcolor1: #221010;
+	}
+
+	:root::-webkit-scrollbar {
+		display: none;
+	}
+
+	*,*:focus,*:hover{
+		outline:none;
+	}
+
+	body{
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-color: var(--bgcolor1);
+		font-family: 'Open Sans', sans-serif;
+		margin: 0;
+		min-height: 100vh;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		user-select: none;
+	}
+
+	header{
+		display: flex;
+		justify-content: center;
+		padding: 10px;
+	}
+
+	#header-title{
+		font-family: 'fmderanax';
+		font-size: clamp(60px, 9vw, 100px);
+		text-shadow: -1px -2px 0 #000, 1px -2px 0 #000, -1px 2px 0 #000, 1px 2px 0 #000;
+		text-align: center;
+		font-weight: normal;
+	}
+
+	main{
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#section-button-row{
+		display: flex;
+		justify-content: center;
+	}
+
+	main > a{
+		padding: 10px 20px;
+		background-color: white;
+		color: black;
+		border: solid white thin;
+		text-decoration: none;
+		text-align: center;
+		font-size: xx-large;
+		font-family: 'fmderanax';
+		border-radius: 50px;
+		transition: 1s;
+		margin-bottom: 100px;
+	}
+
+	#section-button-row > a{
+		padding: 10px 20px;
+		border: solid white thin;
+		text-decoration: none;
+		background-color: white;
+		color: black;
+		text-align: center;
+		font-size: xx-large;
+		font-family: 'fmderanax';
+		border-radius: 50px;
+		transition: 1s;
+		margin: 20px 0;
+	}
+
+	main > a:hover, #section-button-row > a:hover{
+		background-color: transparent;
+		color: white;
+	}
+
+	footer{
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		font-size: small;
+		padding: 10px;
+	}
+
+	footer > div{
+		display: flex;
+		flex-direction: column;
+	}
+
+	footer > div > div > span{
+		font-size: xx-small;
+		margin-right: 5px;
+	}
+
+	#share-whatsapp{
+		position: fixed;
+		top: 10px;
+		right: 10px;
+	}
+
+	#share-whatsapp > a{
+		text-decoration: none;
+		color: green;
+		display: flex;
+		align-items: center;
+		font-weight: bold;
+		font-size: small;
+	}
+
+	#share-whatsapp > a > img{
+		width: 20px;
+		height: 20px;
+	}
+
+/*card*/
+
+	.book {
+		height: clamp(100px, 100vh, 600px);
+		width: clamp(100px, 96%, 400px);
+		max-width: 400px;
+		position: relative;
+		box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
+	}
+
+	.page {
+		width: 100%;
+		height: 100%;
+		perspective: 1500px;
+	}
+
+	.card-cover {
+		background-image: url("card-cover.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: bottom;
+		background-color: orange;
+		color: #fff;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 1;
+		transition: all 1s 0.3s;
+		transform-origin: 0 50%;
+		z-index: 2;
+	}
+	.card-cover::after {
+		content: "";
+		background-image: url("paperbg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		position: absolute;
+		padding-top: 1.5rem;
+		top: 0;
+		left: 0;
+		background-color: snow;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		opacity: 0;
+		transform: rotateY(180deg);
+		transition: all 0.3s 0.5s;
+	}
+	.card-body {
+		background-image: url("paperbg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-color: snow;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 1;
+		color: black;
+	}
+	.page:hover .card-cover {
+		transform: rotateY(-180deg);
+		box-shadow: 1.5rem 2rem 3rem rgba(0, 0, 0, 0.25);
+	}
+	.page:hover .card-cover::after {
+		opacity: 1;
+	}
+
+	#card-cover-header{
+		font-family: 'fmderanax';
+		text-shadow: -1px -2px 0 #000, 1px -2px 0 #000, -1px 2px 0 #000, 1px 2px 0 #000;
+		text-align: center;
+		font-size: clamp(30px, 2vw, 100px);
+	}
+
+	#card-cover-header > h1{
+		font-weight: 600;
+	}
+
+	#card-body-header{
+		font-family: 'fmderanax';
+		font-size: xx-large;
+		text-align: center;
+		margin: 10% 0 5% 0;
+	}
+
+	#card-body-image{
+		height: 30%;
+		margin: 15% 0 2.5% 0;
+		object-fit: contain;
+		position: relative;
+	}
+
+	#card-body-image::before{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		content: "";
+		background-color: transparent;
+	}
+
+	#card-body-image > img{
+		width: 100%;
+		height: 100%;
+	}
+
+	#card-body-poem{
+		text-align: center;
+		font-family: 'fmderanax';
+		margin-bottom: 10%;
+	}
+
+	#card-body-details{
+		font-size: x-large;
+		font-family: 'fmderanax';
+	}
+
+	#card-body-details > div{
+		text-align: center;
+	}
+
+	.writtentext{
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		user-select: text;
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		font-size: large;
+	}
+
+/*create card*/
+
+	#header-title-sub{
+		font-family: 'fmderanax';
+		font-weight: normal;
+	}
+
+	main > form{
+		border: none;
+		padding: 0px;
+		border-radius: 0;
+	}
+
+	main > form > div{
+		margin-bottom: 10px;
+	}
+
+	main > form > div > div{
+		font-family: 'fmderanax';
+		font-size: x-large;
+	}
+
+	main > form > div > input{
+		padding: 10px 0;
+		width: 100%;
+	}
+
+	#create-card-button-row{
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#create-card-title-row{
+		display: flex;
+		justify-content: center;
+	}
+
+	#create-card-button-row > button{
+		padding: 10px 20px;
+		background-color: white;
+		color: black;
+		border: solid white thin;
+		font-size: x-large;
+		font-family: 'fmderanax';
+		border-radius: 50px;
+		transition: 1s;
+		cursor: pointer;
+		margin: 2.5px;
+	}
+
+	#create-card-button-row > button:hover{
+		color: white;
+		background-color: transparent;
+	}
+
+	#share-whatsapp-link > a{
+		text-decoration: none;
+		color: green;
+		display: flex;
+		align-items: center;
+		font-weight: bold;
+		font-size: small;
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		margin-top: 10px;
+	}
+
+	#share-whatsapp-link > a > img{
+		width: 20px;
+		height: 20px;
+	}
+
+	#privacy-policy-link{
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: small;
+	}
+
+	#privacy-policy-container{
+		padding: 20px;
+		font-size: large;
+		max-width: 500px;
+	}
+
+@media screen and (min-width: 300px) {
+	
+	
+	main > form > div > input{
+		padding: 10px;
+		width: 80vw;
+		max-width: 300px;
+	}
+	
+}
+@media screen and (min-width: 360px) {
+	
+	main > form{
+		padding: 20px;
+		border: solid thin white;
+		border-radius: 50px 20px;
+	}
+	
+	main > form > div > input{
+		padding: 10px;
+		width: 100vw;
+		max-width: 300px;
+	}
+	
+}
+
+@media screen and (min-width: 500px) {
+
+	footer{
+		flex-direction: row;
+	}
+
+	footer > div{
+		flex-direction: row;
+	}
+	
+	
+	
+	.writtentext{
+		font-size: x-large;
+	}
+
+}
